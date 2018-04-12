@@ -38,6 +38,10 @@ app.use(function(req, res, next) {
   // commenting out the next line and see. It won't hit the routes, or the
   // 404 handler, or the error handler. It just hangs.
   next();
+
+  // Why doesn't it just treat the function returning as the signal to execute
+  // the next middleware? Because we might be doing something asynchronous, and
+  // that would have us return before we're done.
 });
 
 // App-level middlewares for a given route

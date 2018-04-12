@@ -7,6 +7,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var slowstreamRouter = require('./routes/slowstream');
+var throwsRouter = require('./routes/throws');
 
 var app = express();
 
@@ -43,6 +44,7 @@ app.use(function(req, res, next) {
 // Now read routes/index.js
 app.use('/', indexRouter);
 app.use('/slowstream', slowstreamRouter);
+app.use('/throws', throwsRouter);
 
 // App-level middleware that calls the next middleware (error handler) with a
 // 404 error. This only gets called if something prior to this didn't send a

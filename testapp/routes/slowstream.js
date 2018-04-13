@@ -18,6 +18,10 @@ router.get('/', function(req, res, next) {
     res.write(data);
     res.end();
   });
+
+  // Also prove that it's dealing with other requests while waiting for the
+  // Promise to resolve by running:
+  // ab -k -c 20 -n 20 http://localhost:3000/slowstream
 });
 
 module.exports = router;
